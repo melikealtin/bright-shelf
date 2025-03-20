@@ -1,14 +1,22 @@
 const COLORS = {
-  primary: "#563F32",
-  textPrimary: "#1E282E",
-  textSecondary: "#8D7763",
-  textDark: "#563F32",
-  placeholderText: "#B8A89E",
-  background: "#F9F6F1",
-  cardBackground: "#F2ECE5",
-  inputBackground: "#ECE6E0",
-  border: "#D6CCC3",
-  white: "#ffffff",
+  primary: "#0b0a3f",
+  textPrimary: "#2D2F36",
+  textSecondary: "#636978",
+  textDark: "#202125",
+  placeholderText: "#A6ACBE",
+
+  background: "#F6F7FB",
+  cardBackground: "#FFFFFF",
+  inputBackground: "#EEF1F6",
+  border: "#D9DCE5",
+
+  sidebarBackground: "#FFFFFF",
+  buttonBackground: "#3A7CFD",
+  buttonText: "#FFFFFF",
+  linkColor: "#6547C2",
+  hoverColor: "#567DF4",
+
+  white: "#FFFFFF",
   black: "#000000",
 };
 
