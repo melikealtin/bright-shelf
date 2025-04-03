@@ -1,8 +1,6 @@
 import { create } from "zustand";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import Constants from "expo-constants";
-
-const API_URL = Constants.expoConfig?.extra?.API_URL;
+import { API_URL } from "../constants/api.js";
 
 export const useAuthStore = create((set) => ({
   user: null,
@@ -12,7 +10,7 @@ export const useAuthStore = create((set) => ({
   register: async (email, password, username) => {
     set({ isLoading: true });
     try {
-      const response = await fetch(`${API_URL}/api/auth/register`, {
+      const response = await fetch(`${API_URL}/auth/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -49,7 +47,7 @@ export const useAuthStore = create((set) => ({
     set({ isLoading: true });
 
     try {
-      const response = await fetch(`${API_URL}/api/auth/login`, {
+      const response = await fetch(`${API_URL}/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -81,6 +79,8 @@ export const useAuthStore = create((set) => ({
       const userJson = await AsyncStorage.getItem("user");
       const user = userJson ? JSON.parse(userJson) : null;
       const token = await AsyncStorage.getItem("token");
+
+      console.log("Stored user: ", token);
 
       set({ user, token });
     } catch (error) {
