@@ -87,6 +87,7 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     color: COLORS.textPrimary,
     marginBottom: 6,
+    lineHeight: 20,
     marginLeft: -4,
   },
   ratingContainer: {
@@ -103,6 +104,7 @@ const styles = StyleSheet.create({
   date: {
     fontSize: 12,
     color: COLORS.textSecondary,
+    marginLeft: 1,
   },
   emptyContainer: {
     alignItems: "center",

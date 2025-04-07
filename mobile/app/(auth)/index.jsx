@@ -34,7 +34,7 @@ export default function Login() {
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
-      style={{ flex: 1 }}
+      style={{ flex: 1, backgroundColor: COLORS.background }}
     >
       <View style={styles.container}>
         <View style={styles.topIllustration}>

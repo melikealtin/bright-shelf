@@ -16,7 +16,6 @@ const styles = StyleSheet.create({
   },
   topIllustration: {
     alignItems: "center",
-    backgroundColor: COLORS.background,
     width: "100%",
   },
 
