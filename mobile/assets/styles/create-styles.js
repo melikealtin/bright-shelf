@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: COLORS.textSecondary,
     textAlign: "center",
+    marginBottom: 24,
   },
   form: {
     marginBottom: 16,
@@ -70,6 +71,7 @@ const styles = StyleSheet.create({
     color: COLORS.textDark,
   },
   textArea: {
+    textAlignVertical: "top",
     backgroundColor: COLORS.inputBackground,
     borderRadius: 12,
     borderWidth: 1,
@@ -78,6 +80,7 @@ const styles = StyleSheet.create({
     height: 100,
     color: COLORS.textDark,
   },
+
   ratingContainer: {
     flexDirection: "row",
     justifyContent: "space-around",
@@ -86,7 +89,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     borderWidth: 1,
     borderColor: COLORS.border,
-    padding: 8,
+    padding: 6,
   },
   starButton: {
     padding: 8,

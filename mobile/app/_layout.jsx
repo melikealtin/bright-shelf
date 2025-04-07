@@ -1,16 +1,27 @@
-import { Stack, useRouter, useSegments } from "expo-router";
+import { SplashScreen, Stack, useRouter, useSegments } from "expo-router";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import SafeScreen from "../components/SafeScreen";
 import { StatusBar } from "expo-status-bar";
+import { useFonts } from "expo-font";
 
 import { useAuthStore } from "../store/authStore";
 import { useEffect } from "react";
+
+SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const router = useRouter();
   const segments = useSegments();
 
   const { checkAuth, user, token } = useAuthStore();
+
+  const [fontsLoaded] = useFonts({
+    "Inter-Medium": require("../assets/fonts/Inter-Medium.ttf"),
+  });
+
+  useEffect(() => {
+    if (fontsLoaded) SplashScreen.hideAsync();
+  }, [fontsLoaded]);
 
   useEffect(() => {
     checkAuth();

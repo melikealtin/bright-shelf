@@ -22,7 +22,8 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     fontSize: 24,
-    fontFamily: "JetBrainsMono-Medium",
+    fontWeight: "700",
+    fontFamily: "Inter-Medium",
     letterSpacing: 0.5,
     color: COLORS.primary,
     marginBottom: 8,
@@ -86,6 +87,7 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     color: COLORS.textPrimary,
     marginBottom: 6,
+    marginLeft: -4,
   },
   ratingContainer: {
     flexDirection: "row",
@@ -96,6 +98,7 @@ const styles = StyleSheet.create({
     color: COLORS.textDark,
     marginBottom: 8,
     lineHeight: 20,
+    marginLeft: -4,
   },
   date: {
     fontSize: 12,

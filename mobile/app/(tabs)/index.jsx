@@ -77,41 +77,37 @@ export default function Home() {
     }
   };
 
-  const renderItem = ({ item }) => {
-    return (
-      <View style={styles.bookCard}>
-        <View style={styles.bookHeader}>
-          <View style={styles.userInfo}>
-            <Image
-              source={{ uri: item.user.profilePicture }}
-              style={styles.avatar}
-            />
-            <Text style={styles.username}>{item.user.username}</Text>
-          </View>
-        </View>
-
-        <View style={styles.bookImageContainer}>
+  const renderItem = ({ item }) => (
+    <View style={styles.bookCard}>
+      <View style={styles.bookHeader}>
+        <View style={styles.userInfo}>
           <Image
-            source={item.image}
-            style={styles.bookImage}
-            contentFit="cover"
+            source={{ uri: item.user.profilePicture }}
+            style={styles.avatar}
           />
-        </View>
-        <View style={styles.bookDetails}>
-          <Text style={styles.bookTitle}> {item.title} </Text>
-          <View style={styles.ratingContainer}>
-            {" "}
-            {renderRatingStars(item.rating)}
-          </View>
-          <Text style={styles.caption}> {item.caption} </Text>
-          <Text style={styles.date}>
-            {" "}
-            Shared on {formatPublishDate(item.createdAt)}{" "}
-          </Text>
+          <Text style={styles.username}>{item.user.username}</Text>
         </View>
       </View>
-    );
-  };
+
+      <View style={styles.bookImageContainer}>
+        <Image
+          source={item.image}
+          style={styles.bookImage}
+          contentFit="cover"
+        />
+      </View>
+      <View style={styles.bookDetails}>
+        <Text style={styles.bookTitle}> {item.title} </Text>
+        <View style={styles.ratingContainer}>
+          {renderRatingStars(item.rating)}
+        </View>
+        <Text style={styles.caption}> {item.caption} </Text>
+        <Text style={styles.date}>
+          Shared on {formatPublishDate(item.createdAt)}
+        </Text>
+      </View>
+    </View>
+  );
 
   const renderRatingStars = (rating) => {
     const stars = [];

@@ -5,10 +5,10 @@ const { width } = Dimensions.get("window");
 
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1,
     backgroundColor: COLORS.background,
     padding: 20,
     justifyContent: "center",
+    paddingTop: 10,
   },
   scrollViewStyle: {
     flex: 1,
@@ -16,14 +16,15 @@ const styles = StyleSheet.create({
   },
   topIllustration: {
     alignItems: "center",
+    backgroundColor: COLORS.background,
     width: "100%",
   },
+
   illustrationImage: {
     width: width * 0.75,
     height: width * 0.75,
   },
   card: {
-    backgroundColor: COLORS.cardBackground,
     borderRadius: 16,
     padding: 24,
     shadowColor: COLORS.black,
@@ -33,8 +34,9 @@ const styles = StyleSheet.create({
     elevation: 4,
     borderWidth: 2,
     borderColor: COLORS.border,
-    marginTop: -24,
+    backgroundColor: COLORS.cardBackground,
   },
+
   header: {
     alignItems: "center",
     marginBottom: 24,

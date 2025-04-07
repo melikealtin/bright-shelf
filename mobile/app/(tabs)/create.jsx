@@ -18,7 +18,6 @@ import COLORS from "../../constants/colors.js";
 
 import * as ImagePicker from "expo-image-picker";
 import * as FileSystem from "expo-file-system";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useAuthStore } from "../../store/authStore.js";
 import { API_URL } from "../../constants/api.js";
 
@@ -139,7 +138,7 @@ export default function Create() {
         >
           <Ionicons
             name={i <= rating ? "star" : "star-outline"}
-            size={32}
+            size={26}
             color={i <= rating ? "#f4b400" : COLORS.textSecondary}
           />
         </TouchableOpacity>
@@ -163,83 +162,83 @@ export default function Create() {
           <Text style={styles.subtitle}>
             Help others discover their next favorite read
           </Text>
-        </View>
 
-        <View style={styles.form}>
-          <View style={styles.formGroup}>
-            <Text style={styles.label}>Book Title</Text>
-            <View style={styles.inputContainer}>
-              <Ionicons
-                name="book-outline"
-                size={20}
-                color={COLORS.textSecondary}
-                style={styles.inputIcon}
-              />
+          <View style={styles.form}>
+            <View style={styles.formGroup}>
+              <Text style={styles.label}>Book Title</Text>
+              <View style={styles.inputContainer}>
+                <Ionicons
+                  name="book-outline"
+                  size={20}
+                  color={COLORS.textSecondary}
+                  style={styles.inputIcon}
+                />
+                <TextInput
+                  style={styles.input}
+                  placeholder="Enter book title"
+                  placeholderTextColor={COLORS.placeholderText}
+                  value={title}
+                  onChangeText={setTitle}
+                />
+              </View>
+            </View>
+
+            <View style={styles.formGroup}>
+              <Text style={styles.label}> Your Rating</Text>
+
+              {renderRatingPicker()}
+            </View>
+
+            <View style={styles.formGroup}>
+              <Text style={styles.label}> Book Image</Text>
+              <TouchableOpacity style={styles.imagePicker} onPress={pickImage}>
+                {image ? (
+                  <Image source={{ uri: image }} style={styles.previewImage} />
+                ) : (
+                  <View style={styles.placeholderContainer}>
+                    <Ionicons
+                      name="image-outline"
+                      size={40}
+                      color={COLORS.textSecondary}
+                    />
+                    <Text style={styles.placeholderText}>Pick an image</Text>
+                  </View>
+                )}
+              </TouchableOpacity>
+            </View>
+
+            <View style={styles.formGroup}>
+              <Text style={styles.label}> Caption</Text>
               <TextInput
-                style={styles.input}
-                placeholder="Enter book title"
+                style={styles.textArea}
+                placeholder="Write your review or thoughts about this book..."
                 placeholderTextColor={COLORS.placeholderText}
-                value={title}
-                onChangeText={setTitle}
+                value={caption}
+                onChangeText={setCaption}
+                multiline
               />
             </View>
-          </View>
 
-          <View style={styles.formGroup}>
-            <Text style={styles.label}> Your Rating</Text>
-
-            {renderRatingPicker()}
-          </View>
-
-          <View style={styles.formGroup}>
-            <Text style={styles.label}> Book Image</Text>
-            <TouchableOpacity style={styles.imagePicker} onPress={pickImage}>
-              {image ? (
-                <Image source={{ uri: image }} style={styles.previewImage} />
+            <TouchableOpacity
+              style={styles.button}
+              onPress={handleSubmit}
+              disabled={loading}
+            >
+              {loading ? (
+                <ActivityIndicator color={COLORS.white} />
               ) : (
-                <View style={styles.placeholderContainer}>
+                <>
                   <Ionicons
-                    name="image-outline"
-                    size={40}
-                    color={COLORS.textSecondary}
+                    name="cloud-upload-outline"
+                    size={20}
+                    color={COLORS.white}
+                    style={styles.buttonIcon}
                   />
-                  <Text style={styles.placeholderText}>Pick an image</Text>
-                </View>
+                  <Text style={styles.buttonText}>Share</Text>
+                </>
               )}
             </TouchableOpacity>
           </View>
-
-          <View style={styles.formGroup}>
-            <Text style={styles.label}> Caption</Text>
-            <TextInput
-              style={styles.textArea}
-              placeholder="Write your review or thoughts about this book..."
-              placeholderTextColor={COLORS.placeholderText}
-              value={caption}
-              onChangeText={setCaption}
-              multiline
-            />
-          </View>
-
-          <TouchableOpacity
-            style={styles.button}
-            onPress={handleSubmit}
-            disabled={loading}
-          >
-            {loading ? (
-              <ActivityIndicator color={COLORS.white} />
-            ) : (
-              <>
-                <Ionicons
-                  name="cloud-upload-outline"
-                  size={20}
-                  color={COLORS.white}
-                  style={styles.buttonIcon}
-                />
-                <Text style={styles.buttonText}>Share</Text>
-              </>
-            )}
-          </TouchableOpacity>
         </View>
       </ScrollView>
     </KeyboardAvoidingView>

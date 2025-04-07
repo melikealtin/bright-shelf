@@ -160,7 +160,7 @@ export default function Profile() {
   if (isloading && !refreshing) return <Loader />;
 
   return (
-    <View styles={styles.container}>
+    <View style={styles.container}>
       <ProfileHeader />
       <LogoutButton />
 
